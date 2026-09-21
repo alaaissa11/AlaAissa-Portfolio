@@ -185,16 +185,36 @@
                 </a>
 
                 <!-- Desktop Menu -->
-                <div class="hidden md:flex items-center gap-8">
-                    <a href="#about" class="text-slate-400 hover:text-cyan-300 transition-colors nav-link text-sm font-medium">À propos</a>
-                    <a href="#skills" class="text-slate-400 hover:text-cyan-300 transition-colors nav-link text-sm font-medium">Compétences</a>
-                    <a href="#projects" class="text-slate-400 hover:text-cyan-300 transition-colors nav-link text-sm font-medium">Projets</a>
-                    <a href="#resume" class="text-slate-400 hover:text-cyan-300 transition-colors nav-link text-sm font-medium">Parcours</a>
-                    <a href="#contact" class="text-slate-400 hover:text-cyan-300 transition-colors nav-link text-sm font-medium">Contact</a>
+                <div class="hidden md:flex items-center gap-6">
+                    <a href="#about" data-i18n="nav.about" class="text-slate-400 hover:text-cyan-300 transition-colors nav-link text-sm font-medium">À propos</a>
+                    <a href="#skills" data-i18n="nav.skills" class="text-slate-400 hover:text-cyan-300 transition-colors nav-link text-sm font-medium">Compétences</a>
+                    <a href="#projects" data-i18n="nav.projects" class="text-slate-400 hover:text-cyan-300 transition-colors nav-link text-sm font-medium">Projets</a>
+                    <a href="#resume" data-i18n="nav.resume" class="text-slate-400 hover:text-cyan-300 transition-colors nav-link text-sm font-medium">Parcours</a>
+                    <a href="#contact" data-i18n="nav.contact" class="text-slate-400 hover:text-cyan-300 transition-colors nav-link text-sm font-medium">Contact</a>
                     <a href="CV-Poste ingénieur DevOps.pdf" target="_blank" rel="noopener"
                        class="px-4 py-2 bg-white/5 border border-line text-slate-200 text-sm font-semibold rounded-lg hover:border-cyan-400/60 hover:text-cyan-200 transition-colors">
-                        Télécharger CV
+                        <span data-i18n="nav.cv">Télécharger CV</span>
                     </a>
+
+                    <!-- Language selector -->
+                    <div class="relative" id="langWrap">
+                        <button id="langBtn" type="button" aria-haspopup="true" aria-expanded="false"
+                                class="flex items-center gap-1.5 px-3 py-2 text-sm text-slate-300 border border-line rounded-lg hover:border-cyan-400/60 transition-colors" title="Language">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            <span id="langCurrent" class="text-xs font-semibold">FR</span>
+                            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                            </svg>
+                        </button>
+                        <div id="langDropdown" class="hidden absolute right-0 mt-2 card p-1 min-w-36 shadow-xl">
+                            <button type="button" data-lang="fr" class="lang-option flex items-center justify-between w-full px-3 py-1.5 rounded-md text-sm text-slate-200 hover:bg-white/5">Français<span class="lang-check text-cyan-400">✓</span></button>
+                            <button type="button" data-lang="en" class="lang-option flex items-center justify-between w-full px-3 py-1.5 rounded-md text-sm text-slate-200 hover:bg-white/5">English<span class="lang-check text-cyan-400">✓</span></button>
+                            <button type="button" data-lang="nl" class="lang-option flex items-center justify-between w-full px-3 py-1.5 rounded-md text-sm text-slate-200 hover:bg-white/5">Nederlands<span class="lang-check text-cyan-400">✓</span></button>
+                            <button type="button" data-lang="de" class="lang-option flex items-center justify-between w-full px-3 py-1.5 rounded-md text-sm text-slate-200 hover:bg-white/5">Deutsch<span class="lang-check text-cyan-400">✓</span></button>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Mobile Menu Button -->
@@ -209,13 +229,19 @@
         <!-- Mobile Menu -->
         <div id="mobileMenu" class="mobile-menu fixed top-16 right-0 w-72 h-screen bg-base border-l border-line md:hidden">
             <div class="flex flex-col p-6 space-y-4">
-                <a href="#about" class="text-slate-300 hover:text-cyan-300 transition-colors py-2">À propos</a>
-                <a href="#skills" class="text-slate-300 hover:text-cyan-300 transition-colors py-2">Compétences</a>
-                <a href="#projects" class="text-slate-300 hover:text-cyan-300 transition-colors py-2">Projets</a>
-                <a href="#resume" class="text-slate-300 hover:text-cyan-300 transition-colors py-2">Parcours</a>
-                <a href="#contact" class="text-slate-300 hover:text-cyan-300 transition-colors py-2">Contact</a>
+                <a href="#about" data-i18n="nav.about" class="text-slate-300 hover:text-cyan-300 transition-colors py-2">À propos</a>
+                <a href="#skills" data-i18n="nav.skills" class="text-slate-300 hover:text-cyan-300 transition-colors py-2">Compétences</a>
+                <a href="#projects" data-i18n="nav.projects" class="text-slate-300 hover:text-cyan-300 transition-colors py-2">Projets</a>
+                <a href="#resume" data-i18n="nav.resume" class="text-slate-300 hover:text-cyan-300 transition-colors py-2">Parcours</a>
+                <a href="#contact" data-i18n="nav.contact" class="text-slate-300 hover:text-cyan-300 transition-colors py-2">Contact</a>
                 <a href="CV-Poste ingénieur DevOps.pdf" target="_blank" rel="noopener"
-                   class="px-4 py-2 bg-white/5 border border-line text-slate-200 text-sm font-semibold rounded-lg text-center">CV</a>
+                   class="px-4 py-2 bg-white/5 border border-line text-slate-200 text-sm font-semibold rounded-lg text-center"><span data-i18n="nav.cv">CV</span></a>
+                <div class="flex gap-2 pt-2">
+                    <button type="button" data-lang="fr" class="lang-option flex-1 px-3 py-2 rounded-lg border border-line text-sm text-slate-200 hover:border-cyan-400/60">Français</button>
+                    <button type="button" data-lang="en" class="lang-option flex-1 px-3 py-2 rounded-lg border border-line text-sm text-slate-200 hover:border-cyan-400/60">English</button>
+                    <button type="button" data-lang="nl" class="lang-option flex-1 px-3 py-2 rounded-lg border border-line text-sm text-slate-200 hover:border-cyan-400/60">Nederlands</button>
+                    <button type="button" data-lang="de" class="lang-option flex-1 px-3 py-2 rounded-lg border border-line text-sm text-slate-200 hover:border-cyan-400/60">Deutsch</button>
+                </div>
             </div>
         </div>
     </nav>
@@ -225,21 +251,21 @@
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
             <div class="grid md:grid-cols-2 gap-12 items-center">
                 <div class="animate-fade-up">
-                    <p class="font-mono text-cyan-400 text-sm mb-4">// Ingénieur Cloud & DevOps</p>
+                    <p class="font-mono text-cyan-400 text-sm mb-4" data-i18n="hero.kicker">// Ingénieur Cloud & DevOps</p>
                     <h1 class="text-4xl md:text-5xl font-display font-bold text-white tracking-tight leading-tight">
                         Ala Aïssa
                     </h1>
                     <p class="mt-2 text-xl md:text-2xl text-slate-300 font-medium">
                         <span class="typewriter inline-block" id="typewriter"></span>
                     </p>
-                    <p class="mt-6 text-slate-400 text-base md:text-lg leading-relaxed max-w-xl">
+                    <p class="mt-6 text-slate-400 text-base md:text-lg leading-relaxed max-w-xl" data-i18n="hero.desc">
                         Ingénieur Cloud &amp; DevOps spécialisé dans l'infrastructure as code,
                         l'orchestration de conteneurs et l'automatisation CI/CD. Je conçois des
                         plateformes robustes, scalables et 100&nbsp;% open source — du code à la production.
                     </p>
                     <div class="mt-8 flex flex-wrap gap-3">
-                        <a href="#projects" class="btn-primary px-6 py-3 rounded-lg font-semibold text-sm">Voir mes projets</a>
-                        <a href="#contact" class="btn-outline px-6 py-3 rounded-lg font-semibold text-sm">Me contacter</a>
+                        <a href="#projects" data-i18n="hero.cta1" class="btn-primary px-6 py-3 rounded-lg font-semibold text-sm">Voir mes projets</a>
+                        <a href="#contact" data-i18n="hero.cta2" class="btn-outline px-6 py-3 rounded-lg font-semibold text-sm">Me contacter</a>
                         <a href="CV-Poste ingénieur DevOps.pdf" target="_blank" rel="noopener"
                            class="btn-outline px-6 py-3 rounded-lg font-semibold text-sm">CV</a>
                     </div>
@@ -280,46 +306,46 @@
             <div class="max-w-2xl">
                 <p class="flex items-center gap-3 font-mono text-xs text-cyan-400 mb-2">
                     <span class="w-8 h-px bg-gradient-to-r from-cyan-400 to-transparent"></span>
-                    <span>01 — À propos de moi</span>
+                    <span data-i18n="about.kicker">01 — À propos de moi</span>
                 </p>
-                <h2 class="section-title">À propos de moi</h2>
+                <h2 class="section-title" data-i18n="about.title">À propos de moi</h2>
             </div>
 
             <div class="grid md:grid-cols-2 gap-12 mt-10 items-start">
                 <div>
-                    <h3 class="text-xl font-display font-semibold text-white mb-4">Ingénieur Cloud &amp; DevOps</h3>
-                    <p class="text-slate-400 leading-relaxed mb-4">
+                    <h3 class="text-xl font-display font-semibold text-white mb-4" data-i18n="about.subtitle">Ingénieur Cloud &amp; DevOps</h3>
+                    <p class="text-slate-400 leading-relaxed mb-4" data-i18n="about.p1">
                         Diplômé de l'Université ESPRIT (2026), je suis spécialisé dans les technologies
                         Cloud et DevOps. Mon expertise couvre l'infrastructure as code, l'orchestration de
                         conteneurs et l'automatisation CI/CD, de la conception jusqu'à la mise en production.
                     </p>
-                    <p class="text-slate-400 leading-relaxed mb-6">
+                    <p class="text-slate-400 leading-relaxed mb-6" data-i18n="about.p2">
                         Je conçois des plateformes scalables, du code maintenable et des chaînes
                         d'automatisation fiables. Curieux et rigoureux, je reste à l'affût des
                         dernières évolutions de l'écosystème open source.
                     </p>
                     <dl class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                         <div class="card p-4">
-                            <dt class="text-xs uppercase tracking-wider text-slate-500 mb-1">Localisation</dt>
+                            <dt class="text-xs uppercase tracking-wider text-slate-500 mb-1" data-i18n="about.loc">Localisation</dt>
                             <dd class="text-slate-200 text-sm">Cebalat Ben Ammar, Tunis</dd>
                         </div>
                         <div class="card p-4">
-                            <dt class="text-xs uppercase tracking-wider text-slate-500 mb-1">Certifications</dt>
+                            <dt class="text-xs uppercase tracking-wider text-slate-500 mb-1" data-i18n="about.certs">Certifications</dt>
                             <dd class="text-slate-200 text-sm">AWS · Blockchain</dd>
                         </div>
                         <div class="card p-4">
-                            <dt class="text-xs uppercase tracking-wider text-slate-500 mb-1">Langues</dt>
+                            <dt class="text-xs uppercase tracking-wider text-slate-500 mb-1" data-i18n="about.lang">Langues</dt>
                             <dd class="text-slate-200 text-sm">Français · Anglais · Arabe</dd>
                         </div>
                         <div class="card p-4">
-                            <dt class="text-xs uppercase tracking-wider text-slate-500 mb-1">Disponibilité</dt>
-                            <dd class="text-slate-200 text-sm">Ouvert aux opportunités</dd>
+                            <dt class="text-xs uppercase tracking-wider text-slate-500 mb-1" data-i18n="about.avail">Disponibilité</dt>
+                            <dd class="text-slate-200 text-sm" data-i18n="about.availVal">Ouvert aux opportunités</dd>
                         </div>
                     </dl>
                 </div>
 
                 <div>
-                    <h3 class="text-xl font-display font-semibold text-white mb-4">Compétences clés</h3>
+                    <h3 class="text-xl font-display font-semibold text-white mb-4" data-i18n="about.skills">Compétences clés</h3>
                     <div class="flex flex-wrap gap-2 mb-8">
                         <span class="skill-badge px-4 py-2 rounded-full text-sm">Kubernetes</span>
                         <span class="skill-badge px-4 py-2 rounded-full text-sm">Docker</span>
@@ -349,10 +375,10 @@
             <div class="max-w-2xl mb-10">
                 <p class="flex items-center gap-3 font-mono text-xs text-cyan-400 mb-2">
                     <span class="w-8 h-px bg-gradient-to-r from-cyan-400 to-transparent"></span>
-                    <span>02 — Mes projets</span>
+                    <span data-i18n="projects.kicker">02 — Mes projets</span>
                 </p>
-                <h2 class="section-title">Projets</h2>
-                <p class="text-slate-400 mt-3">
+                <h2 class="section-title" data-i18n="projects.title">Projets</h2>
+                <p class="text-slate-400 mt-3" data-i18n="projects.intro">
                     Une sélection de projets open source et de réalisations professionnelles,
                     de la migration cloud à l'industrialisation CI/CD.
                 </p>
@@ -375,15 +401,15 @@
                             <span class="badge px-2 py-0.5 text-xs rounded">Grafana</span>
                             <span class="badge px-2 py-0.5 text-xs rounded">GitOps</span>
                         </div>
-                        <h3 class="text-sm font-display font-semibold text-white">Homelab Platform — Plateforme Kubernetes</h3>
-                        <p class="text-slate-400 text-xs mt-1.5 leading-relaxed">
+                        <h3 class="text-sm font-display font-semibold text-white" data-i18n="proj.homelab.title">Homelab Platform — Plateforme Kubernetes</h3>
+                        <p class="text-slate-400 text-xs mt-1.5 leading-relaxed" data-i18n="proj.homelab.desc">
                             Plateforme Kubernetes complète, 100&nbsp;% open source, construite sur machine locale.
                         </p>
                         <div class="mt-auto pt-3">
                             <a href="https://github.com/alaaissa11/homelab-platform" target="_blank" rel="noopener"
                                class="link text-xs inline-flex items-center gap-2 font-medium">
                                 <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-                                Voir sur GitHub
+                                <span data-i18n="proj.gh">Voir sur GitHub</span>
                             </a>
                         </div>
                     </div>
@@ -401,8 +427,8 @@
                             <span class="badge px-2 py-0.5 text-xs rounded">Kubernetes</span>
                             <span class="badge px-2 py-0.5 text-xs rounded">Terraform</span>
                         </div>
-                        <h3 class="text-sm font-display font-semibold text-white">Migration Cloud Azure → On-premises</h3>
-                        <p class="text-slate-400 text-xs mt-1.5 leading-relaxed">
+                        <h3 class="text-sm font-display font-semibold text-white" data-i18n="proj.mig.title">Migration Cloud Azure → On-premises</h3>
+                        <p class="text-slate-400 text-xs mt-1.5 leading-relaxed" data-i18n="proj.mig.desc">
                             Migration d'une application mobile critique d'Azure AKS vers K3s
                             on-premises avec 0 interruption de service.
                         </p>
@@ -428,8 +454,8 @@
                             <span class="badge px-2 py-0.5 text-xs rounded">Docker</span>
                             <span class="badge px-2 py-0.5 text-xs rounded">SonarQube</span>
                         </div>
-                        <h3 class="text-sm font-display font-semibold text-white">Industrialisation CI/CD</h3>
-                        <p class="text-slate-400 text-xs mt-1.5 leading-relaxed">
+                        <h3 class="text-sm font-display font-semibold text-white" data-i18n="proj.cicd.title">Industrialisation CI/CD</h3>
+                        <p class="text-slate-400 text-xs mt-1.5 leading-relaxed" data-i18n="proj.cicd.desc">
                             Chaîne CI/CD complète automatisant le build, les tests, l'analyse
                             qualité et le déploiement de microservices.
                         </p>
@@ -455,8 +481,8 @@
                             <span class="badge px-2 py-0.5 text-xs rounded">Angular</span>
                             <span class="badge px-2 py-0.5 text-xs rounded">MongoDB</span>
                         </div>
-                        <h3 class="text-sm font-display font-semibold text-white">Gestion de dossiers juridiques</h3>
-                        <p class="text-slate-400 text-xs mt-1.5 leading-relaxed">
+                        <h3 class="text-sm font-display font-semibold text-white" data-i18n="proj.legal.title">Gestion de dossiers juridiques</h3>
+                        <p class="text-slate-400 text-xs mt-1.5 leading-relaxed" data-i18n="proj.legal.desc">
                             Plateforme web de gestion et de suivi des dossiers juridiques
                             en cabinet d'avocats.
                         </p>
@@ -480,31 +506,31 @@
             <div class="max-w-2xl mb-10">
                 <p class="flex items-center gap-3 font-mono text-xs text-cyan-400 mb-2">
                     <span class="w-8 h-px bg-gradient-to-r from-cyan-400 to-transparent"></span>
-                    <span>03 — Parcours &amp; Formation</span>
+                    <span data-i18n="resume.kicker">03 — Parcours &amp; Formation</span>
                 </p>
-                <h2 class="section-title">Expériences &amp; Formation</h2>
+                <h2 class="section-title" data-i18n="resume.title">Expériences &amp; Formation</h2>
             </div>
 
             <div class="grid lg:grid-cols-2 gap-12">
                 <!-- Expériences -->
                 <div>
                     <h3 class="flex items-center gap-2 text-lg font-display font-semibold text-white mb-8">
-                        <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
-                        </svg>
-                        Expériences professionnelles
-                    </h3>
+                            <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                            <span data-i18n="resume.expHead">Expériences professionnelles</span>
+                        </h3>
 
                     <div class="space-y-6">
                         <div class="relative pl-6 border-l border-line">
                             <span class="timeline-dot absolute -left-[7px] top-2"></span>
                             <div class="card p-5">
                                 <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-                                    <span class="font-mono text-cyan-400 text-xs">Janvier 2026 — Juin 2026</span>
+                                    <span class="font-mono text-cyan-400 text-xs" data-i18n="exp.fullstack.date">Janvier 2026 — Juin 2026</span>
                                     <span class="text-slate-500 text-xs">Cabinet Boussayene Knani Law Firm, Tunis</span>
                                 </div>
-                                <h4 class="font-display font-semibold text-white">Développeur Full Stack</h4>
-                                <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+                                <h4 class="font-display font-semibold text-white" data-i18n="exp.fullstack.title">Développeur Full Stack</h4>
+                                <p class="text-slate-400 text-sm mt-2 leading-relaxed" data-i18n="exp.fullstack.desc">
                                     Développement d'une plateforme de gestion de dossiers juridiques
                                     garantissant traçabilité, collaboration sécurisée et respect des privilèges des intervenants.
                                 </p>
@@ -515,11 +541,11 @@
                             <span class="timeline-dot absolute -left-[7px] top-2"></span>
                             <div class="card p-5">
                                 <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-                                    <span class="font-mono text-cyan-400 text-xs">Juin 2025 — Sept. 2025</span>
+                                    <span class="font-mono text-cyan-400 text-xs" data-i18n="exp.devops.date">Juin 2025 — Sept. 2025</span>
                                     <span class="text-slate-500 text-xs">Biware Consulting, Tunis</span>
                                 </div>
-                                <h4 class="font-display font-semibold text-white">DevOps Engineer — Migration Cloud</h4>
-                                <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+                                <h4 class="font-display font-semibold text-white" data-i18n="exp.devops.title">DevOps Engineer — Migration Cloud</h4>
+                                <p class="text-slate-400 text-sm mt-2 leading-relaxed" data-i18n="exp.devops.desc">
                                     Migration d'une application mobile critique d'Azure AKS vers K3s
                                     on-premises. Stack d'observabilité Prometheus/Grafana/Istio, tests de charge
                                     1000 utilisateurs simultanés, 30&nbsp;% de réduction des coûts, latence &lt; 50&nbsp;ms.
@@ -532,10 +558,10 @@
                             <div class="card p-5">
                                 <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
                                     <span class="font-mono text-cyan-400 text-xs">2024</span>
-                                    <span class="text-slate-500 text-xs">Projet académique</span>
+                                    <span class="text-slate-500 text-xs" data-i18n="exp.acad.tag">Projet académique</span>
                                 </div>
-                                <h4 class="font-display font-semibold text-white">Industrialisation CI/CD Microservices</h4>
-                                <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+                                <h4 class="font-display font-semibold text-white" data-i18n="exp.acad.title">Industrialisation CI/CD Microservices</h4>
+                                <p class="text-slate-400 text-sm mt-2 leading-relaxed" data-i18n="exp.acad.desc">
                                     Chaîne CI/CD complète avec Jenkins, Docker, SonarQube et Nexus.
                                     Build en 5&nbsp;min, déploiement en 2&nbsp;min, couverture de tests &gt; 80&nbsp;%.
                                 </p>
@@ -551,7 +577,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path>
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path>
                         </svg>
-                        Formation
+                        <span data-i18n="resume.eduHead">Formation</span>
                     </h3>
 
                     <div class="space-y-6">
@@ -559,11 +585,11 @@
                             <span class="timeline-dot absolute -left-[7px] top-2"></span>
                             <div class="card p-5">
                                 <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-                                    <span class="font-mono text-cyan-400 text-xs">2020 — 2026</span>
+                                    <span class="font-mono text-cyan-400 text-xs" data-i18n="edu.esprit.date">2020 — 2026</span>
                                     <span class="text-slate-500 text-xs">Université ESPRIT, Tunis</span>
                                 </div>
-                                <h4 class="font-display font-semibold text-white">Cycle Ingénieur — Cloud Computing &amp; DevOps</h4>
-                                <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+                                <h4 class="font-display font-semibold text-white" data-i18n="edu.esprit.title">Cycle Ingénieur — Cloud Computing &amp; DevOps</h4>
+                                <p class="text-slate-400 text-sm mt-2 leading-relaxed" data-i18n="edu.esprit.desc">
                                     Spécialisation en Cloud Computing &amp; DevOps. Diplômé en 2026.
                                 </p>
                             </div>
@@ -574,7 +600,7 @@
                         <svg class="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                         </svg>
-                        Certificats
+                        <span data-i18n="resume.certHead">Certificats</span>
                     </h3>
 
                     <div class="space-y-6">
@@ -583,10 +609,10 @@
                             <div class="card p-5">
                                 <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
                                     <span class="font-mono text-cyan-400 text-xs">2025</span>
-                                    <span class="text-slate-500 text-xs">Certification</span>
+                                    <span class="text-slate-500 text-xs" data-i18n="cert.tag">Certification</span>
                                 </div>
                                 <h4 class="font-display font-semibold text-white">AWS Academy Cloud Foundations</h4>
-                                <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+                                <p class="text-slate-400 text-sm mt-2 leading-relaxed" data-i18n="cert.aws.desc">
                                     Fondamentaux du cloud AWS : architecture, services et bonnes pratiques.
                                 </p>
                             </div>
@@ -600,7 +626,7 @@
                                     <span class="text-slate-500 text-xs">DAR Blockchain</span>
                                 </div>
                                 <h4 class="font-display font-semibold text-white">Blockchain Fundamentals</h4>
-                                <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+                                <p class="text-slate-400 text-sm mt-2 leading-relaxed" data-i18n="cert.block.desc">
                                     Certification Blockchain Fundamentals.
                                 </p>
                             </div>
@@ -617,44 +643,44 @@
             <div class="max-w-2xl mb-10">
                 <p class="flex items-center gap-3 font-mono text-xs text-cyan-400 mb-2">
                     <span class="w-8 h-px bg-gradient-to-r from-cyan-400 to-transparent"></span>
-                    <span>04 — Contact</span>
+                    <span data-i18n="contact.kicker">04 — Contact</span>
                 </p>
-                <h2 class="section-title">Me contacter</h2>
-                <p class="text-slate-400 mt-3">
+                <h2 class="section-title" data-i18n="contact.title">Me contacter</h2>
+                <p class="text-slate-400 mt-3" data-i18n="contact.intro">
                     Une opportunité, un projet ou une question&nbsp;? Je vous réponds sous 24&nbsp;heures.
                 </p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-12">
                 <div>
-                    <h3 class="text-lg font-display font-semibold text-white mb-6">Envoyez-moi un message</h3>
+                    <h3 class="text-lg font-display font-semibold text-white mb-6" data-i18n="contact.form">Envoyez-moi un message</h3>
                     <form id="contactForm" class="space-y-4">
                         <div>
-                            <label for="name" class="block text-sm text-slate-400 mb-2">Nom</label>
+                            <label for="name" class="block text-sm text-slate-400 mb-2" data-i18n="form.name">Nom</label>
                             <input type="text" id="name" name="name" required
                                    class="w-full px-4 py-3 rounded-lg text-sm"
-                                   placeholder="Votre nom">
+                                   data-i18n-placeholder="form.namePh" placeholder="Votre nom">
                         </div>
                         <div>
-                            <label for="email" class="block text-sm text-slate-400 mb-2">Email</label>
+                            <label for="email" class="block text-sm text-slate-400 mb-2" data-i18n="form.email">Email</label>
                             <input type="email" id="email" name="email" required
                                    class="w-full px-4 py-3 rounded-lg text-sm"
-                                   placeholder="votre@email.com">
+                                   data-i18n-placeholder="form.emailPh" placeholder="votre@email.com">
                         </div>
                         <div>
-                            <label for="message" class="block text-sm text-slate-400 mb-2">Message</label>
+                            <label for="message" class="block text-sm text-slate-400 mb-2" data-i18n="form.message">Message</label>
                             <textarea id="message" name="message" rows="5" required
                                       class="w-full px-4 py-3 rounded-lg text-sm resize-none"
-                                      placeholder="Votre message..."></textarea>
+                                      data-i18n-placeholder="form.messagePh" placeholder="Votre message..."></textarea>
                         </div>
-                        <button type="submit" class="btn-primary w-full px-6 py-3 rounded-lg font-semibold text-sm">
+                        <button type="submit" class="btn-primary w-full px-6 py-3 rounded-lg font-semibold text-sm" data-i18n="form.send">
                             Envoyer le message
                         </button>
                     </form>
                 </div>
 
                 <div>
-                    <h3 class="text-lg font-display font-semibold text-white mb-6">Coordonnées</h3>
+                    <h3 class="text-lg font-display font-semibold text-white mb-6" data-i18n="contact.info">Coordonnées</h3>
                     <div class="space-y-5">
                         <a href="mailto:aissaala52@gmail.com" class="flex items-center gap-4 group">
                             <span class="w-11 h-11 rounded-lg bg-surface-2 border border-line flex items-center justify-center flex-shrink-0 group-hover:border-cyan-400/50 transition-colors">
@@ -663,7 +689,7 @@
                                 </svg>
                             </span>
                             <span>
-                                <span class="block text-slate-500 text-xs uppercase tracking-wider">Email</span>
+                                <span class="block text-slate-500 text-xs uppercase tracking-wider" data-i18n="contact.emailLabel">Email</span>
                                 <span class="text-slate-200 text-sm">aissaala52@gmail.com</span>
                             </span>
                         </a>
@@ -675,7 +701,7 @@
                                 </svg>
                             </span>
                             <span>
-                                <span class="block text-slate-500 text-xs uppercase tracking-wider">Téléphone</span>
+                                <span class="block text-slate-500 text-xs uppercase tracking-wider" data-i18n="contact.phoneLabel">Téléphone</span>
                                 <span class="text-slate-200 text-sm">+216 52 722 130</span>
                             </span>
                         </a>
@@ -688,13 +714,13 @@
                                 </svg>
                             </span>
                             <span>
-                                <span class="block text-slate-500 text-xs uppercase tracking-wider">Localisation</span>
+                                <span class="block text-slate-500 text-xs uppercase tracking-wider" data-i18n="contact.locLabel">Localisation</span>
                                 <span class="text-slate-200 text-sm">Cebalat Ben Ammar 2083, Tunis</span>
                             </span>
                         </div>
                     </div>
 
-                    <h4 class="text-sm uppercase tracking-wider text-slate-500 mt-8 mb-4">Réseaux sociaux</h4>
+                    <h4 class="text-sm uppercase tracking-wider text-slate-500 mt-8 mb-4" data-i18n="contact.social">Réseaux sociaux</h4>
                     <div class="flex gap-3">
                         <a href="https://github.com/alaaissa11" target="_blank" rel="noopener"
                            class="w-11 h-11 rounded-lg bg-surface-2 border border-line flex items-center justify-center text-slate-300 hover:text-cyan-300 hover:border-cyan-400/50 transition-colors" title="GitHub">
@@ -720,13 +746,13 @@
     <footer class="py-8 border-t border-line">
         <div class="max-w-6xl mx-auto px-4 sm:px-6">
             <div class="flex flex-col md:flex-row items-center justify-between gap-4">
-                <p class="text-slate-500 text-sm">© 2026 Ala Aïssa. Tous droits réservés.</p>
+                <p class="text-slate-500 text-sm" data-i18n="footer.rights">© 2026 Ala Aïssa. Tous droits réservés.</p>
                 <p class="text-slate-500 text-sm">
-                    Conçu avec <span class="text-cyan-400">∞</span> par
+                    <span data-i18n="footer.designed">Conçu avec</span> <span class="text-cyan-400">∞</span> <span data-i18n="footer.by">par</span>
                     <span class="text-slate-300 font-medium">Ala Aïssa</span>
                 </p>
                 <a href="#hero" class="text-slate-400 hover:text-cyan-300 transition-colors text-sm flex items-center gap-1">
-                    Retour en haut
+                    <span data-i18n="footer.top">Retour en haut</span>
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
                     </svg>
@@ -736,7 +762,258 @@
     </footer>
 
     <script>
-        // Mobile menu toggle
+        // ============ i18n Dictionary ============
+        const translations = {
+            fr: {
+                "nav.about": "À propos", "nav.skills": "Compétences", "nav.projects": "Projets",
+                "nav.resume": "Parcours", "nav.contact": "Contact", "nav.cv": "Télécharger CV",
+                "hero.kicker": "// Ingénieur Cloud & DevOps",
+                "hero.desc": "Ingénieur Cloud & DevOps spécialisé dans l'infrastructure as code, l'orchestration de conteneurs et l'automatisation CI/CD. Je conçois des plateformes robustes, scalables et 100 % open source — du code à la production.",
+                "hero.cta1": "Voir mes projets", "hero.cta2": "Me contacter",
+                "about.kicker": "01 — À propos de moi", "about.title": "À propos de moi",
+                "about.subtitle": "Ingénieur Cloud & DevOps",
+                "about.p1": "Diplômé de l'Université ESPRIT (2026), je suis spécialisé dans les technologies Cloud et DevOps. Mon expertise couvre l'infrastructure as code, l'orchestration de conteneurs et l'automatisation CI/CD, de la conception jusqu'à la mise en production.",
+                "about.p2": "Je conçois des plateformes scalables, du code maintenable et des chaînes d'automatisation fiables. Curieux et rigoureux, je reste à l'affût des dernières évolutions de l'écosystème open source.",
+                "about.loc": "Localisation", "about.certs": "Certifications", "about.lang": "Langues",
+                "about.avail": "Disponibilité", "about.availVal": "Ouvert aux opportunités",
+                "about.skills": "Compétences clés",
+                "projects.kicker": "02 — Mes projets", "projects.title": "Projets",
+                "projects.intro": "Une sélection de projets open source et de réalisations professionnelles, de la migration cloud à l'industrialisation CI/CD.",
+                "proj.homelab.title": "Homelab Platform — Plateforme Kubernetes",
+                "proj.homelab.desc": "Plateforme Kubernetes complète, 100 % open source, construite sur machine locale.",
+                "proj.gh": "Voir sur GitHub",
+                "proj.mig.title": "Migration Cloud Azure → On-premises",
+                "proj.mig.desc": "Migration d'une application mobile critique d'Azure AKS vers K3s on-premises avec 0 interruption de service.",
+                "proj.cicd.title": "Industrialisation CI/CD",
+                "proj.cicd.desc": "Chaîne CI/CD complète automatisant le build, les tests, l'analyse qualité et le déploiement de microservices.",
+                "proj.legal.title": "Gestion de dossiers juridiques",
+                "proj.legal.desc": "Plateforme web de gestion et de suivi des dossiers juridiques en cabinet d'avocats.",
+                "resume.kicker": "03 — Parcours & Formation", "resume.title": "Expériences & Formation",
+                "resume.expHead": "Expériences professionnelles",
+                "exp.fullstack.date": "Janvier 2026 — Juin 2026", "exp.fullstack.title": "Développeur Full Stack",
+                "exp.fullstack.desc": "Développement d'une plateforme de gestion de dossiers juridiques garantissant traçabilité, collaboration sécurisée et respect des privilèges des intervenants.",
+                "exp.devops.date": "Juin 2025 — Sept. 2025", "exp.devops.title": "DevOps Engineer — Migration Cloud",
+                "exp.devops.desc": "Migration d'une application mobile critique d'Azure AKS vers K3s on-premises. Stack d'observabilité Prometheus/Grafana/Istio, tests de charge 1000 utilisateurs simultanés, 30 % de réduction des coûts, latence < 50 ms.",
+                "exp.acad.tag": "Projet académique", "exp.acad.title": "Industrialisation CI/CD Microservices",
+                "exp.acad.desc": "Chaîne CI/CD complète avec Jenkins, Docker, SonarQube et Nexus. Build en 5 min, déploiement en 2 min, couverture de tests > 80 %.",
+                "resume.eduHead": "Formation", "edu.esprit.date": "2020 — 2026",
+                "edu.esprit.title": "Cycle Ingénieur — Cloud Computing & DevOps",
+                "edu.esprit.desc": "Spécialisation en Cloud Computing & DevOps. Diplômé en 2026.",
+                "resume.certHead": "Certificats", "cert.tag": "Certification",
+                "cert.aws.desc": "Fondamentaux du cloud AWS : architecture, services et bonnes pratiques.",
+                "cert.block.desc": "Certification Blockchain Fundamentals.",
+                "contact.kicker": "04 — Contact", "contact.title": "Me contacter",
+                "contact.intro": "Une opportunité, un projet ou une question ? Je vous réponds sous 24 heures.",
+                "contact.form": "Envoyez-moi un message",
+                "form.name": "Nom", "form.email": "Email", "form.message": "Message",
+                "form.namePh": "Votre nom", "form.emailPh": "votre@email.com", "form.messagePh": "Votre message...",
+                "form.send": "Envoyer le message", "contact.info": "Coordonnées",
+                "contact.emailLabel": "Email", "contact.phoneLabel": "Téléphone", "contact.locLabel": "Localisation",
+                "contact.social": "Réseaux sociaux",
+                "footer.rights": "© 2026 Ala Aïssa. Tous droits réservés.",
+                "footer.designed": "Conçu avec", "footer.by": "par", "footer.top": "Retour en haut",
+                mailSubject: "Contact depuis le portfolio — ",
+                typewriter: ["Ingénieur Cloud & DevOps", "Infrastructure as Code", "CI/CD & Automatisation"]
+            },
+            en: {
+                "nav.about": "About", "nav.skills": "Skills", "nav.projects": "Projects",
+                "nav.resume": "Career", "nav.contact": "Contact", "nav.cv": "Download CV",
+                "hero.kicker": "// Cloud & DevOps Engineer",
+                "hero.desc": "Cloud & DevOps engineer specialized in infrastructure as code, container orchestration, and CI/CD automation. I design robust, scalable, 100 % open source platforms — from code to production.",
+                "hero.cta1": "View my projects", "hero.cta2": "Contact me",
+                "about.kicker": "01 — About me", "about.title": "About me",
+                "about.subtitle": "Cloud & DevOps Engineer",
+                "about.p1": "Graduated from ESPRIT University (2026), I specialize in Cloud and DevOps technologies. My expertise covers infrastructure as code, container orchestration, and CI/CD automation, from design to production deployment.",
+                "about.p2": "I design scalable platforms, maintainable code, and reliable automation pipelines. Curious and rigorous, I keep up with the latest developments in the open source ecosystem.",
+                "about.loc": "Location", "about.certs": "Certifications", "about.lang": "Languages",
+                "about.avail": "Availability", "about.availVal": "Open to opportunities",
+                "about.skills": "Key skills",
+                "projects.kicker": "02 — My projects", "projects.title": "Projects",
+                "projects.intro": "A selection of open source projects and professional achievements, from cloud migration to CI/CD industrialization.",
+                "proj.homelab.title": "Homelab Platform — Kubernetes Platform",
+                "proj.homelab.desc": "Complete Kubernetes platform, 100 % open source, built on a local machine.",
+                "proj.gh": "View on GitHub",
+                "proj.mig.title": "Cloud Migration Azure → On-premises",
+                "proj.mig.desc": "Migration of a critical mobile application from Azure AKS to on-premises K3s with zero service interruption.",
+                "proj.cicd.title": "CI/CD Industrialization",
+                "proj.cicd.desc": "Complete CI/CD pipeline automating build, tests, quality analysis, and deployment of microservices.",
+                "proj.legal.title": "Legal case management platform",
+                "proj.legal.desc": "Web platform for managing and tracking legal cases in a law firm.",
+                "resume.kicker": "03 — Experience & Education", "resume.title": "Experience & Education",
+                "resume.expHead": "Professional experience",
+                "exp.fullstack.date": "January 2026 — June 2026", "exp.fullstack.title": "Full Stack Developer",
+                "exp.fullstack.desc": "Development of a legal case management platform ensuring traceability, secure collaboration, and respect for stakeholder privileges.",
+                "exp.devops.date": "June 2025 — Sept. 2025", "exp.devops.title": "DevOps Engineer — Cloud Migration",
+                "exp.devops.desc": "Led the migration of a critical mobile application from Azure AKS to on-premises K3s. Observability stack Prometheus/Grafana/Istio, load tests with 1000 concurrent users, 30 % cost reduction, latency < 50 ms.",
+                "exp.acad.tag": "Academic project", "exp.acad.title": "Microservices CI/CD Industrialization",
+                "exp.acad.desc": "Complete CI/CD pipeline with Jenkins, Docker, SonarQube and Nexus. Build in 5 min, deploy in 2 min, test coverage > 80 %.",
+                "resume.eduHead": "Education", "edu.esprit.date": "2020 — 2026",
+                "edu.esprit.title": "Engineering Degree — Cloud Computing & DevOps",
+                "edu.esprit.desc": "Specialization in Cloud Computing & DevOps. Graduated in 2026.",
+                "resume.certHead": "Certifications", "cert.tag": "Certification",
+                "cert.aws.desc": "AWS cloud fundamentals: architecture, services, and best practices.",
+                "cert.block.desc": "Blockchain Fundamentals certification.",
+                "contact.kicker": "04 — Contact", "contact.title": "Contact me",
+                "contact.intro": "An opportunity, a project, or a question? I reply within 24 hours.",
+                "contact.form": "Send me a message",
+                "form.name": "Name", "form.email": "Email", "form.message": "Message",
+                "form.namePh": "Your name", "form.emailPh": "your@email.com", "form.messagePh": "Your message...",
+                "form.send": "Send message", "contact.info": "Contact details",
+                "contact.emailLabel": "Email", "contact.phoneLabel": "Phone", "contact.locLabel": "Location",
+                "contact.social": "Social media",
+                "footer.rights": "© 2026 Ala Aïssa. All rights reserved.",
+                "footer.designed": "Designed with", "footer.by": "by", "footer.top": "Back to top",
+                mailSubject: "Contact from the portfolio — ",
+                typewriter: ["Cloud & DevOps Engineer", "Infrastructure as Code", "CI/CD & Automation"]
+            },
+            nl: {
+                "nav.about": "Over mij", "nav.skills": "Vaardigheden", "nav.projects": "Projecten",
+                "nav.resume": "Loopbaan", "nav.contact": "Contact", "nav.cv": "CV downloaden",
+                "hero.kicker": "// Cloud & DevOps Engineer",
+                "hero.desc": "Cloud & DevOps-engineer gespecialiseerd in infrastructure as code, containerorkestratie en CI/CD-automatisering. Ik ontwerp robuuste, schaalbare, 100 % open source platforms — van code tot productie.",
+                "hero.cta1": "Mijn projecten bekijken", "hero.cta2": "Neem contact op",
+                "about.kicker": "01 — Over mij", "about.title": "Over mij",
+                "about.subtitle": "Cloud & DevOps Engineer",
+                "about.p1": "Afgestudeerd aan de ESPRIT Universiteit (2026), gespecialiseerd in Cloud- en DevOps-technologieën. Mijn expertise omvat infrastructure as code, containerorkestratie en CI/CD-automatisering, van ontwerp tot productie.",
+                "about.p2": "Ik ontwerp schaalbare platforms, onderhoudbare code en betrouwbare automatiseringspijplijnen. Nieuwsgierig en nauwkeurig volg ik de nieuwste ontwikkelingen in het open source-ecosysteem.",
+                "about.loc": "Locatie", "about.certs": "Certificeringen", "about.lang": "Talen",
+                "about.avail": "Beschikbaarheid", "about.availVal": "Open voor kansen",
+                "about.skills": "Belangrijkste vaardigheden",
+                "projects.kicker": "02 — Mijn projecten", "projects.title": "Projecten",
+                "projects.intro": "Een selectie van open source-projecten en professionele realisaties, van cloudmigratie tot CI/CD-industrialisatie.",
+                "proj.homelab.title": "Homelab Platform — Kubernetes Platform",
+                "proj.homelab.desc": "Volledig Kubernetes-platform, 100 % open source, gebouwd op een lokale machine.",
+                "proj.gh": "Bekijk op GitHub",
+                "proj.mig.title": "Cloudmigratie Azure → On-premises",
+                "proj.mig.desc": "Migratie van een kritieke mobiele app van Azure AKS naar on-premises K3s zonder onderbreking van de dienst.",
+                "proj.cicd.title": "CI/CD-industrialisatie",
+                "proj.cicd.desc": "Volledige CI/CD-pijplijn die build, tests, kwaliteitsanalyse en implementatie van microservices automatiseert.",
+                "proj.legal.title": "Platform voor juridische dossiers",
+                "proj.legal.desc": "Webplatform voor beheer en opvolging van juridische dossiers in een advocatenkantoor.",
+                "resume.kicker": "03 — Ervaring & Opleiding", "resume.title": "Ervaring & Opleiding",
+                "resume.expHead": "Professionele ervaring",
+                "exp.fullstack.date": "Januari 2026 — Juni 2026", "exp.fullstack.title": "Full Stack-ontwikkelaar",
+                "exp.fullstack.desc": "Ontwikkeling van een platform voor juridische dossiers dat traceerbaarheid, veilige samenwerking en respect voor de rechten van betrokkenen garandeert.",
+                "exp.devops.date": "Juni 2025 — Sept. 2025", "exp.devops.title": "DevOps Engineer — Cloudmigratie",
+                "exp.devops.desc": "Leidde de migratie van een kritieke mobiele app van Azure AKS naar on-premises K3s. Observabiliteitsstack Prometheus/Grafana/Istio, belastingtests met 1000 gelijktijdige gebruikers, 30 % kostenbesparing, latentie < 50 ms.",
+                "exp.acad.tag": "Academisch project", "exp.acad.title": "CI/CD-industrialisatie Microservices",
+                "exp.acad.desc": "Volledige CI/CD-pijplijn met Jenkins, Docker, SonarQube en Nexus. Build in 5 min, deploy in 2 min, testdekking > 80 %.",
+                "resume.eduHead": "Opleiding", "edu.esprit.date": "2020 — 2026",
+                "edu.esprit.title": "Ingenieursdiploma — Cloud Computing & DevOps",
+                "edu.esprit.desc": "Specialisatie in Cloud Computing & DevOps. Afgestudeerd in 2026.",
+                "resume.certHead": "Certificeringen", "cert.tag": "Certificering",
+                "cert.aws.desc": "AWS-cloudfundamentals: architectuur, services en beste praktijken.",
+                "cert.block.desc": "Blockchain Fundamentals-certificering.",
+                "contact.kicker": "04 — Contact", "contact.title": "Neem contact op",
+                "contact.intro": "Een kans, een project of een vraag? Ik antwoord binnen 24 uur.",
+                "contact.form": "Stuur me een bericht",
+                "form.name": "Naam", "form.email": "E-mail", "form.message": "Bericht",
+                "form.namePh": "Uw naam", "form.emailPh": "uw@email.com", "form.messagePh": "Uw bericht...",
+                "form.send": "Bericht verzenden", "contact.info": "Contactgegevens",
+                "contact.emailLabel": "E-mail", "contact.phoneLabel": "Telefoon", "contact.locLabel": "Locatie",
+                "contact.social": "Sociale netwerken",
+                "footer.rights": "© 2026 Ala Aïssa. Alle rechten voorbehouden.",
+                "footer.designed": "Ontworpen met", "footer.by": "door", "footer.top": "Terug naar boven",
+                mailSubject: "Contact van het portfolio — ",
+                typewriter: ["Cloud & DevOps Engineer", "Infrastructure as Code", "CI/CD & Automatisering"]
+            },
+            de: {
+                "nav.about": "Über mich", "nav.skills": "Fähigkeiten", "nav.projects": "Projekte",
+                "nav.resume": "Werdegang", "nav.contact": "Kontakt", "nav.cv": "CV herunterladen",
+                "hero.kicker": "// Cloud- & DevOps-Ingenieur",
+                "hero.desc": "Cloud- & DevOps-Ingenieur, spezialisiert auf Infrastructure as Code, Container-Orchestrierung und CI/CD-Automatisierung. Ich entwickle robuste, skalierbare, 100 % Open-Source-Plattformen — vom Code bis zur Produktion.",
+                "hero.cta1": "Meine Projekte ansehen", "hero.cta2": "Kontakt aufnehmen",
+                "about.kicker": "01 — Über mich", "about.title": "Über mich",
+                "about.subtitle": "Cloud- & DevOps-Ingenieur",
+                "about.p1": "Absolvent der Universität ESPRIT (2026), spezialisiert auf Cloud- und DevOps-Technologien. Meine Expertise umfasst Infrastructure as Code, Container-Orchestrierung und CI/CD-Automatisierung, vom Entwurf bis zur Produktion.",
+                "about.p2": "Ich entwickle skalierbare Plattformen, wartbaren Code und zuverlässige Automatisierungspipelines. Neugierig und gründlich verfolge ich die neuesten Entwicklungen im Open-Source-Ökosystem.",
+                "about.loc": "Standort", "about.certs": "Zertifizierungen", "about.lang": "Sprachen",
+                "about.avail": "Verfügbarkeit", "about.availVal": "Offen für Angebote",
+                "about.skills": "Wichtigste Fähigkeiten",
+                "projects.kicker": "02 — Meine Projekte", "projects.title": "Projekte",
+                "projects.intro": "Eine Auswahl an Open-Source-Projekten und beruflichen Erfolgen, von der Cloud-Migration bis zur CI/CD-Industrialisierung.",
+                "proj.homelab.title": "Homelab Platform — Kubernetes-Plattform",
+                "proj.homelab.desc": "Vollständige Kubernetes-Plattform, 100 % Open Source, auf einem lokalen Rechner aufgebaut.",
+                "proj.gh": "Auf GitHub ansehen",
+                "proj.mig.title": "Cloud-Migration Azure → On-premises",
+                "proj.mig.desc": "Migration einer kritischen mobilen App von Azure AKS zu on-premises K3s ohne Unterbrechung des Dienstes.",
+                "proj.cicd.title": "CI/CD-Industrialisierung",
+                "proj.cicd.desc": "Vollständige CI/CD-Pipeline, die Build, Tests, Qualitätsanalyse und Bereitstellung von Microservices automatisiert.",
+                "proj.legal.title": "Plattform für rechtliche Vorgänge",
+                "proj.legal.desc": "Webplattform für die Verwaltung und Nachverfolgung rechtlicher Vorgänge in einer Anwaltskanzlei.",
+                "resume.kicker": "03 — Werdegang & Ausbildung", "resume.title": "Werdegang & Ausbildung",
+                "resume.expHead": "Berufserfahrung",
+                "exp.fullstack.date": "Januar 2026 — Juni 2026", "exp.fullstack.title": "Full-Stack-Entwickler",
+                "exp.fullstack.desc": "Entwicklung einer Plattform für die Verwaltung rechtlicher Vorgänge, die Rückverfolgbarkeit, sichere Zusammenarbeit und Respekt vor den Rechten der Beteiligten gewährleistet.",
+                "exp.devops.date": "Juni 2025 — Sept. 2025", "exp.devops.title": "DevOps Engineer — Cloud-Migration",
+                "exp.devops.desc": "Leitung der Migration einer kritischen mobilen App von Azure AKS zu on-premises K3s. Observability-Stack Prometheus/Grafana/Istio, Lasttests mit 1000 gleichzeitigen Benutzern, 30 % Kostensenkung, Latenz < 50 ms.",
+                "exp.acad.tag": "Akademisches Projekt", "exp.acad.title": "CI/CD-Industrialisierung von Microservices",
+                "exp.acad.desc": "Vollständige CI/CD-Pipeline mit Jenkins, Docker, SonarQube und Nexus. Build in 5 min, Deploy in 2 min, Testabdeckung > 80 %.",
+                "resume.eduHead": "Ausbildung", "edu.esprit.date": "2020 — 2026",
+                "edu.esprit.title": "Ingenieursabschluss — Cloud Computing & DevOps",
+                "edu.esprit.desc": "Spezialisierung auf Cloud Computing & DevOps. Abschluss 2026.",
+                "resume.certHead": "Zertifizierungen", "cert.tag": "Zertifizierung",
+                "cert.aws.desc": "AWS-Grundlagen: Architektur, Services und Best Practices.",
+                "cert.block.desc": "Zertifizierung Blockchain Fundamentals.",
+                "contact.kicker": "04 — Kontakt", "contact.title": "Kontakt aufnehmen",
+                "contact.intro": "Eine Chance, ein Projekt oder eine Frage? Ich antworte innerhalb von 24 Stunden.",
+                "contact.form": "Senden Sie mir eine Nachricht",
+                "form.name": "Name", "form.email": "E-Mail", "form.message": "Nachricht",
+                "form.namePh": "Ihr Name", "form.emailPh": "ihre@email.com", "form.messagePh": "Ihre Nachricht...",
+                "form.send": "Nachricht senden", "contact.info": "Kontaktdaten",
+                "contact.emailLabel": "E-Mail", "contact.phoneLabel": "Telefon", "contact.locLabel": "Standort",
+                "contact.social": "Soziale Netzwerke",
+                "footer.rights": "© 2026 Ala Aïssa. Alle Rechte vorbehalten.",
+                "footer.designed": "Entworfen mit", "footer.by": "von", "footer.top": "Nach oben",
+                mailSubject: "Kontakt über das Portfolio — ",
+                typewriter: ["Cloud- & DevOps-Ingenieur", "Infrastructure as Code", "CI/CD & Automatisierung"]
+            }
+        };
+
+        // ============ Language switcher ============
+        let currentLang = localStorage.getItem('portfolio_lang') || 'fr';
+
+        const typewriterEl = document.getElementById('typewriter');
+        let typewriterText = translations[currentLang].typewriter;
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function applyLanguage(lang) {
+            if (!translations[lang]) return;
+            currentLang = lang;
+            localStorage.setItem('portfolio_lang', lang);
+            document.documentElement.lang = lang;
+            const dict = translations[lang];
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key] !== undefined) el.textContent = dict[key];
+            });
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (dict[key] !== undefined) el.setAttribute('placeholder', dict[key]);
+            });
+
+            typewriterText = dict.typewriter;
+            typewriterEl.textContent = '';
+            textIndex = 0;
+            charIndex = 0;
+            isDeleting = false;
+
+            const langBtn = document.getElementById('langCurrent');
+            if (langBtn) langBtn.textContent = lang.toUpperCase();
+
+            document.querySelectorAll('.lang-option').forEach(btn => {
+                const active = btn.dataset.lang === lang;
+                if (active) { btn.classList.add('text-cyan-300'); btn.classList.remove('text-slate-200'); }
+                else { btn.classList.remove('text-cyan-300'); btn.classList.add('text-slate-200'); }
+                const check = btn.querySelector('.lang-check');
+                if (check) check.classList.toggle('hidden', !active);
+            });
+        }
+
+        // ============ Mobile menu toggle ============
         const menuBtn = document.getElementById('menuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
 
@@ -748,13 +1025,13 @@
             link.addEventListener('click', () => mobileMenu.classList.remove('active'));
         });
 
-        // Navbar shadow on scroll
+        // ============ Navbar shadow on scroll ============
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
             navbar.style.boxShadow = window.pageYOffset > 24 ? '0 4px 24px rgba(0,0,0,0.5)' : 'none';
         });
 
-        // Active nav link on scroll
+        // ============ Active nav link on scroll ============
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('.nav-link');
 
@@ -773,7 +1050,7 @@
             });
         });
 
-        // Fade in on scroll
+        // ============ Fade in on scroll ============
         const fadeElements = document.querySelectorAll('.fade-in-section');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -782,13 +1059,7 @@
         }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
         fadeElements.forEach(el => observer.observe(el));
 
-        // Typewriter effect
-        const typewriterText = ['Ingénieur Cloud & DevOps', 'Infrastructure as Code', 'CI/CD & Automatisation'];
-        const typewriterEl = document.getElementById('typewriter');
-        let textIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-
+        // ============ Typewriter effect ============
         function typeWriter() {
             const currentText = typewriterText[textIndex];
             if (isDeleting) {
@@ -807,20 +1078,18 @@
             setTimeout(typeWriter, isDeleting ? 50 : 100);
         }
 
-        document.addEventListener('DOMContentLoaded', typeWriter);
-
-        // Contact form → mailto
+        // ============ Contact form → mailto ============
         document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
-            const subject = encodeURIComponent('Contact depuis le portfolio — ' + name);
+            const subject = encodeURIComponent(translations[currentLang].mailSubject + name);
             const body = encodeURIComponent(message + '\n\n— ' + name + ' (' + email + ')');
             window.location.href = 'mailto:aissaala52@gmail.com?subject=' + subject + '&body=' + body;
         });
 
-        // Smooth scroll for anchor links
+        // ============ Smooth scroll for anchor links ============
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -829,6 +1098,36 @@
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
+        });
+
+        // ============ Language dropdown behavior ============
+        const langBtn = document.getElementById('langBtn');
+        const langDropdown = document.getElementById('langDropdown');
+
+        if (langBtn && langDropdown) {
+            langBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                langDropdown.classList.toggle('hidden');
+                langBtn.setAttribute('aria-expanded', langDropdown.classList.contains('hidden') ? 'false' : 'true');
+            });
+            document.addEventListener('click', () => {
+                langDropdown.classList.add('hidden');
+                langBtn.setAttribute('aria-expanded', 'false');
+            });
+        }
+
+        document.querySelectorAll('.lang-option').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                applyLanguage(btn.dataset.lang);
+                if (langDropdown) langDropdown.classList.add('hidden');
+            });
+        });
+
+        // ============ Init ============
+        document.addEventListener('DOMContentLoaded', () => {
+            applyLanguage(currentLang);
+            typeWriter();
         });
     </script>
 </body>
