@@ -676,6 +676,7 @@
                         <button type="submit" class="btn-primary w-full px-6 py-3 rounded-lg font-semibold text-sm" data-i18n="form.send">
                             Envoyer le message
                         </button>
+                        <div id="formStatus" class="hidden text-sm rounded-lg px-4 py-3"></div>
                     </form>
                 </div>
 
@@ -808,6 +809,8 @@
                 "form.name": "Nom", "form.email": "Email", "form.message": "Message",
                 "form.namePh": "Votre nom", "form.emailPh": "votre@email.com", "form.messagePh": "Votre message...",
                 "form.send": "Envoyer le message", "contact.info": "Coordonnées",
+                "form.success": "Message envoyé ! Je vous répondrai sous 24 heures.",
+                "form.error": "Échec de l'envoi. Réessayez ou écrivez-moi directement à aissaala52@gmail.com.",
                 "contact.emailLabel": "Email", "contact.phoneLabel": "Téléphone", "contact.locLabel": "Localisation",
                 "contact.social": "Réseaux sociaux",
                 "footer.rights": "© 2026 Ala Aïssa. Tous droits réservés.",
@@ -859,6 +862,8 @@
                 "form.name": "Name", "form.email": "Email", "form.message": "Message",
                 "form.namePh": "Your name", "form.emailPh": "your@email.com", "form.messagePh": "Your message...",
                 "form.send": "Send message", "contact.info": "Contact details",
+                "form.success": "Message sent! I will reply within 24 hours.",
+                "form.error": "Failed to send. Please retry or email me at aissaala52@gmail.com.",
                 "contact.emailLabel": "Email", "contact.phoneLabel": "Phone", "contact.locLabel": "Location",
                 "contact.social": "Social media",
                 "footer.rights": "© 2026 Ala Aïssa. All rights reserved.",
@@ -910,6 +915,8 @@
                 "form.name": "Naam", "form.email": "E-mail", "form.message": "Bericht",
                 "form.namePh": "Uw naam", "form.emailPh": "uw@email.com", "form.messagePh": "Uw bericht...",
                 "form.send": "Bericht verzenden", "contact.info": "Contactgegevens",
+                "form.success": "Bericht verzonden! Ik antwoord binnen 24 uur.",
+                "form.error": "Verzenden mislukt. Probeer opnieuw of e-mail me op aissaala52@gmail.com.",
                 "contact.emailLabel": "E-mail", "contact.phoneLabel": "Telefoon", "contact.locLabel": "Locatie",
                 "contact.social": "Sociale netwerken",
                 "footer.rights": "© 2026 Ala Aïssa. Alle rechten voorbehouden.",
@@ -961,6 +968,8 @@
                 "form.name": "Name", "form.email": "E-Mail", "form.message": "Nachricht",
                 "form.namePh": "Ihr Name", "form.emailPh": "ihre@email.com", "form.messagePh": "Ihre Nachricht...",
                 "form.send": "Nachricht senden", "contact.info": "Kontaktdaten",
+                "form.success": "Nachricht gesendet! Ich antworte innerhalb von 24 Stunden.",
+                "form.error": "Senden fehlgeschlagen. Versuchen Sie es erneut oder schreiben Sie mir an aissaala52@gmail.com.",
                 "contact.emailLabel": "E-Mail", "contact.phoneLabel": "Telefon", "contact.locLabel": "Standort",
                 "contact.social": "Soziale Netzwerke",
                 "footer.rights": "© 2026 Ala Aïssa. Alle Rechte vorbehalten.",
@@ -1078,15 +1087,64 @@
             setTimeout(typeWriter, isDeleting ? 50 : 100);
         }
 
-        // ============ Contact form → mailto ============
+        // ============ Contact form → Web3Forms ============
+        // Créez votre clé (gratuit, ~250 messages/mois) sur https://web3forms.com
+        // puis remplacez la valeur ci-dessous par votre access_key.
+        const WEB3FORMS_ACCESS_KEY = '583091b0-7546-46ac-a80c-ad664759753d';
+
         document.getElementById('contactForm').addEventListener('submit', function (e) {
             e.preventDefault();
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
-            const subject = encodeURIComponent(translations[currentLang].mailSubject + name);
-            const body = encodeURIComponent(message + '\n\n— ' + name + ' (' + email + ')');
-            window.location.href = 'mailto:aissaala52@gmail.com?subject=' + subject + '&body=' + body;
+            const status = document.getElementById('formStatus');
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const message = document.getElementById('message').value.trim();
+            const btn = this.querySelector('button[type="submit"]');
+
+            status.className = 'hidden text-sm rounded-lg px-4 py-3';
+
+            // Repli : si la clé n'est pas encore configurée, ouvre le client mail
+            if (!WEB3FORMS_ACCESS_KEY || WEB3FORMS_ACCESS_KEY.indexOf('VOTRE_CLE') !== -1) {
+                const subject = encodeURIComponent(translations[currentLang].mailSubject + name);
+                const body = encodeURIComponent(message + '\n\n— ' + name + ' (' + email + ')');
+                window.location.href = 'mailto:aissaala52@gmail.com?subject=' + subject + '&body=' + body;
+                return;
+            }
+
+            btn.disabled = true;
+            btn.style.opacity = '0.6';
+
+            const payload = {
+                access_key: WEB3FORMS_ACCESS_KEY,
+                from_name: name,
+                subject: translations[currentLang].mailSubject + name,
+                email: email,
+                message: message
+            };
+
+            fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify(payload)
+            })
+            .then(res => res.json())
+            .then(res => {
+                if (res.success) {
+                    status.textContent = translations[currentLang]['form.success'];
+                    status.className = 'text-sm rounded-lg px-4 py-3 bg-cyan-500/10 border border-cyan-400/30 text-cyan-200';
+                    this.reset();
+                } else {
+                    status.textContent = translations[currentLang]['form.error'];
+                    status.className = 'text-sm rounded-lg px-4 py-3 bg-red-500/10 border border-red-400/30 text-red-200';
+                }
+            })
+            .catch(() => {
+                status.textContent = translations[currentLang]['form.error'];
+                status.className = 'text-sm rounded-lg px-4 py-3 bg-red-500/10 border border-red-400/30 text-red-200';
+            })
+            .finally(() => {
+                btn.disabled = false;
+                btn.style.opacity = '1';
+            });
         });
 
         // ============ Smooth scroll for anchor links ============
